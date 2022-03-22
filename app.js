@@ -10,6 +10,8 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 const app = express();
 
+const lodash = require('lodash');
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({
@@ -54,7 +56,7 @@ app.post("/compose", function(req, res) {
 app.get("/posts/:postName", function(req, res) {
   //console.log(req.params.postName);
   posts.forEach(function(post){
-    if (post.title === req.params.postName){
+    if (lodash.lowerCase(post.title) === lodash.lowerCase(req.params.postName)){
       console.log("Match found!");
     }
   })
