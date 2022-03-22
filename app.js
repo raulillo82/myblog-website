@@ -57,9 +57,15 @@ app.get("/posts/:postName", function(req, res) {
   //console.log(req.params.postName);
   posts.forEach(function(post){
     if (lodash.lowerCase(post.title) === lodash.lowerCase(req.params.postName)){
-      console.log("Match found!");
+      res.render("post", {
+        post: post
+      });
     }
   })
+});
+
+app.get("/post", function(req, res) {
+  res.render("post");
 });
 
 app.listen(3000, function() {
