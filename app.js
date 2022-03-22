@@ -40,7 +40,7 @@ app.get("/compose", function(req, res) {
 });
 
 app.post("/compose", function(req, res) {
-  const item = req.body.input;
+  const item = req.body.postTitle;
   console.log(item);
   //res.redirect('/compose');
 });
